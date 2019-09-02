@@ -1,11 +1,23 @@
 {
   "name": "beerapp",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Beer rating app",
+  "main": "src/server.js",
   "scripts": {
-    "test": "export NODE_ENV=test&& jasmine"
+    "test": "export NODE_ENV=test&& jasmine",
+    "start": "node src/server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KReysen/beerapp.git"
+  },
+  "author": "Kat Reysen",
+  "license": "ISC",
+  "devDependencies": {
+    "jasmine": "^3.0.0",
+    "request": "^2.83.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  }
 }

@@ -43,6 +43,18 @@ describe("routes : users", () => {
  
     });
 
+    // describe("GET /users/:id", () => {
+    //   beforeEach((done) => {
+    //     this.user;
+
+    //     User.create({
+    //       username: "newuser",
+    //       email: "newuser@email.com",
+    //       password: "GoBuffs"
+    //     })
+    //   })
+    // })
+
     describe("POST /users", () => {
 
             it("should create a new user with valid values and redirect", (done) => {

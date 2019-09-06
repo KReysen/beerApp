@@ -1,3 +1,28 @@
+.navbar {
+  background-color: #1f1c20;
+
+}
+
+.index-body {
+  background-color: #EBECE6;
+}
+
+.jumbotron {
+  background-color: #689da4;
+}
+
+.btn {
+  background-color: #689da4;
+}
+
 body {
-    padding-top: 54px;
-  }
+  padding-top: 25px;
+}
+
+#signup-box {
+  background-color: #8c6b44;
+  padding: 1em;
+}
+.col-lg-4 {
+  padding: 1em;
+}

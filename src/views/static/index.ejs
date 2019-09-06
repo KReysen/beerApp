@@ -10,34 +10,42 @@
  
 
       <!-- Page Content -->
+      <div class="index-body">
       <main class="container">
+        
 
         <!-- Jumbotron Header -->
         <header class="jumbotron my-4">
-          <h1 class="display-3">Welcome to BeerApp</h1>
-          <p class="lead"></p>
-          <a href="/users/sign_up" class="btn btn-primary btn-lg">Sign up</a>
+          <h2 class="display-4">Welcome to BeerApp</h2>
+          <p class="lead">Community beer recommendations</p>
+          
         </header>
 
         <!-- Page Features -->
         <section class="row text-center">
 
           <section class="col-lg-4">
-            <h4 class="card-title">Rate & Review Beers</h4>
+            <h4 class="card-title">Log in to rate and review beers</h4>
             <p class="card-text">Share your thoughts about subjects that are important to you.</p>
+            <a href="/users/sign_in" class="btn btn-primary btn-lg">Log in</a>
           </section>
 
 
 
           <section class="col-lg-4">
-            <h4 class="card-title">Stay Informed</h4>
-            <p class="card-text">See what everyone's drinking!</p>
+            <div id="signup-box">
+            <h4 class="card-title">Not a member yet?</h4>
+            <p class="card-text">Create your free account today!</p>
+            <a href="/users/sign_up" class="btn btn-primary btn-lg">Sign up</a>
+            </div>
           </section>
 
         </section>
         <!-- /.row -->
+      
 
       </main>
+    </div>
       <!-- /.container -->
 
       <% include ./partials/baseScripts.ejs %>

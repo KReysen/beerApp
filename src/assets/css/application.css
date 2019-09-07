@@ -8,21 +8,52 @@
 }
 
 .jumbotron {
-  background-color: #689da4;
+  background-color: #2fbbbe;
 }
 
 .btn {
-  background-color: #689da4;
+  background-color: #2fbbbe;
+  border-color: #2fbbbe;
+}
+.btn-primary:hover {
+  background-color:#689da4;
+  border-color: #689da4;
 }
 
 body {
   padding-top: 25px;
+  background-color: #EBECE6;
 }
 
 #signup-box {
   background-color: #8c6b44;
   padding: 1em;
+  
 }
 .col-lg-4 {
   padding: 1em;
+}
+
+#signup-heading{
+  padding-top: 1em;
+}
+
+#signin-heading {
+  padding-top: 1em;
+}
+
+.signup-form {
+  background-color: #8c6b44;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+.signin-form {
+  background-color: #8c6b44;
+  padding: 1em;
+  margin-top: 2em;
+}
+
+#nameHelp, #emailHelp, #passwordHelp {
+  color: white;
 }

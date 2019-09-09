@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <% include ../static/partials/navbar.ejs %>
+
+    <main class="container">
+      <h1><%= beer.name %></h1>
+      <p><%= beer.brewery %></p>
+      <p><%= beer.style %></p>
+      <p><%= beer.abv %>% ABV</p>
+    
+      <p><%= beer.description %></p>
+      
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+
+  </body>
+</html>

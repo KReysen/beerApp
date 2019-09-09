@@ -48,5 +48,46 @@ describe("routes : beers", () => {
             });
         });
     });
-    
+
+    describe("POST /beers/create", () => {
+        const options = {
+            url: `${base}create`,
+            form: {
+                name: "Ellie's Brown Ale",
+                description: "This beautiful, deep russet brew is dominated by a chocolate and brown sugar maltiness with hints of vanilla and nuts, producing a very smooth, well-balanced, and quaffable brown ale.",
+                abv: 5.5,
+                style: "Brown Ale",
+                brewery: "Avery Brewing"
+            }
+        };
+        it("should create a new beer and redirect", (done) => {
+            request.post(options, (err, res, body) => {
+                Beer.findOne({where: {name: "Ellie's Brown Ale"}})
+                .then((beer) => {
+                    expect(res.statusCode).toBe(303);
+                    expect(beer.name).toBe("Ellie's Brown Ale");
+                    expect(beer.description).toBe("This beautiful, deep russet brew is dominated by a chocolate and brown sugar maltiness with hints of vanilla and nuts, producing a very smooth, well-balanced, and quaffable brown ale.");
+                    expect(beer.abv).toBe(5.5);
+                    expect(beer.style).toBe("Brown Ale");
+                    expect(beer.brewery).toBe("Avery Brewing");
+                    done();
+                })
+                .catch((err) => {
+                    console.log(err);
+                    done();
+                });
+            });
+        });
+    });
+
+    describe("GET /beers/:id", () => {
+        it("should render a view of the selected beer's page", (done) => {
+            request.get(`${base}${this.beer.id}`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("Ellie's Brown Ale");
+                done();
+            });
+        });
+    });
+
 });

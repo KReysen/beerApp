@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     abv: {
-      type: DataTypes.INTEGER
+      type: DataTypes.FLOAT
     },
     style: {
       type: DataTypes.STRING,
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     brewery: {
       type: DataTypes.STRING,
-      allowNull: false
+      
     },
   }, {});
   Beer.associate = function(models) {

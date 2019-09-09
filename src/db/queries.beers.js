@@ -9,5 +9,29 @@ module.exports = {
         .catch((err) => {
             callback(err);
         })
+    },
+    addBeer(newBeer, callback){
+        return Beer.create({
+            name: newBeer.name,
+            description: newBeer.description,
+            abv: newBeer.abv,
+            style: newBeer.style,
+            brewery: newBeer.brewery
+        })
+        .then((beer) => {
+            callback(null, beer);
+        })
+        .catch((err) => {
+            callback(err);
+        })
+    },
+    getBeer(id, callback){
+        return Beer.findById(id)
+        .then((beer) => {
+            callback(null, beer);
+        })
+        .catch((err) => {
+            callback(err);
+        })
     }
 }

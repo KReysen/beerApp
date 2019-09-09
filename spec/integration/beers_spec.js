@@ -84,10 +84,29 @@ describe("routes : beers", () => {
         it("should render a view of the selected beer's page", (done) => {
             request.get(`${base}${this.beer.id}`, (err, res, body) => {
                 expect(err).toBeNull();
-                expect(body).toContain("Ellie's Brown Ale");
+                expect(body).toContain("Stone IPA");
                 done();
             });
         });
     });
+
+    describe("POST /beers/:id/destroy", () => {
+        it("should delete the beer with the associated id", (done) => {
+            Beer.findAll()
+            .then((beers) => {
+                const beerCountBeforeDelete = beers.length;
+                expect(beerCountBeforeDelete).toBe(1);
+                request.post(`${base}${this.beer.id}/destroy`, (err, res, body) => {
+                    Beer.findAll()
+                    .then((beers) => {
+                        expect(err).toBeNull();
+                        expect(beers.length).toBe(beerCountBeforeDelete - 1);
+                        done();
+                    })
+                });
+            });
+        });
+    });
+
 
 });

@@ -37,6 +37,16 @@ module.exports = {
                 res.render("beers/show", {beer});
             }
         });
+    },
+
+    destroy(req, res, next){
+        beerQueries.deleteBeer(req.params.id, (err, beer) => {
+            if(err){
+                res.redirect(500, `/beers/${beer.id}`)
+            } else {
+                res.redirect(303, "/beers")
+            }
+        });
     }
 
 }

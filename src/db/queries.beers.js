@@ -44,6 +44,23 @@ module.exports = {
         .catch((err) => {
             callback(err);
         })
+    },
+    updateBeer(id, updatedBeer, callback) {
+        return Beer.findById(id)
+        .then((beer) => {
+            if(!beer){
+                return callback("Beer not found");
+            }
+            beer.update(updatedBeer, {
+                fields: Object.keys(updatedBeer)
+            })
+            .then(() => {
+                callback(null, beer);
+            })
+            .catch((err) => {
+                callback(err);
+            });
+        });
     }
-    
+
 }

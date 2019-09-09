@@ -108,5 +108,44 @@ describe("routes : beers", () => {
         });
     });
 
+    describe("GET /beers/:id/edit", () => {
+        it("should render a view with an edit beer form", (done) => {
+            request.get(`${base}${this.beer.id}/edit`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("Edit Beer");
+                expect(body).toContain("Stone IPA");
+                done();
+            });
+        });
+    });
+
+    describe("POST /beers/:id/update", () => {
+        it("should update the beer with the given values", (done) => {
+            const options = {
+                url: `${base}${this.beer.id}/update`,
+                form: {
+                  name: "Stone IPA",
+                  description: "The IPA That Launched Generations of Hop Fanatics",
+                  abv: 5.7,
+                  style: "India Pale Ale",
+                  brewery: "Stone Brewing Company"
+                }
+            };
+            request.post(options, (err, res, body) => {
+                expect(err).toBeNull();
+                Beer.findOne({
+                    where: { id: this.beer.id }
+                })
+                .then((beer) => {
+                    expect(beer.abv).toBe(5.7);
+                    expect(beer.brewery).toBe("Stone Brewing Company");
+                    done();
+                });
+            });
+        });
+    });
+
+
+
 
 });

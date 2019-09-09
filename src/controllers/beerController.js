@@ -47,6 +47,26 @@ module.exports = {
                 res.redirect(303, "/beers")
             }
         });
+    },
+
+    edit(req, res, next){
+        beerQueries.getBeer(req.params.id, (err, beer) => {
+            if(err || beer == null){
+                res.redirect(404, "/");
+            } else {
+                res.render("beers/edit", {beer});
+            }
+        });
+    },
+
+    update(req, res, next){
+        beerQueries.updateBeer(req.params.id, req.body, (err, beer) => {
+            if(err || beer == null){
+                res.redirect(404, `/beers/${req.params.id}/edit`);
+            } else {
+                res.redirect(`/beers/${beer.id}`);
+            }
+        });
     }
 
 }

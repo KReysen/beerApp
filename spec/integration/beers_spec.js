@@ -38,4 +38,15 @@ describe("routes : beers", () => {
             });
         });
     });
+
+    describe("GET /beers/new", () => {
+        it("should render a form to add new beers", (done) => {
+            request.get(`${base}new`, (err, res, body) => {
+                expect(err).toBeNull();
+                expect(body).toContain("New Beer");
+                done();
+            });
+        });
+    });
+    
 });

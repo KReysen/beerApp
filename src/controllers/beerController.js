@@ -4,6 +4,7 @@ module.exports = {
     index(req, res, next) {
         beerQueries.getAllBeers((err, beers) => {
             if(err){
+                console.log(err);
                 res.redirect(500, "static/index");
             } else {
                 res.render("beers/index", {beers});

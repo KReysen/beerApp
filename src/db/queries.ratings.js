@@ -2,7 +2,7 @@ const Beer = require("./models").Beer;
 const User = require("./models").User;
 const Rating = require("./models").Rating;
 
-// const Authorizer == require("../policies/rating");
+const Authorizer = require("../policies/rating");
 
 module.exports = {
     createRating(newRating, callback){

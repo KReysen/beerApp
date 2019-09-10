@@ -16,7 +16,8 @@ describe("routes : ratings", () => {
             User.create({
                 username: "LeoCat",
                 email: "Leo@cat.com",
-                password: "password"
+                password: "password",
+                role: "member"
             })
             .then((user) => {
                 this.user = user;

@@ -5,6 +5,10 @@ module.exports = {
       const userRoutes = require("../routes/users");
       const beerRoutes = require("../routes/beers");
       const ratingRoutes = require("../routes/ratings");
+      if(process.env.NODE_ENV === "test") {
+        const mockAuth = require("../../spec/support/mock-auth.js");
+        mockAuth.fakeIt(app);
+      }
 
 
       app.use(staticRoutes);

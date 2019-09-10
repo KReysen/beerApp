@@ -1,4 +1,6 @@
 const Beer = require("./models").Beer;
+const Rating = require("./models").Rating;
+const User = require("./models").User;
 
 module.exports = {
     getAllBeers(callback){

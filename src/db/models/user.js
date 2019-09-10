@@ -16,6 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         isEmail: { msg: "must be a valid email" }
       }
     },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "member"
+    }
   }, {});
   User.associate = function(models) {
     // associations can be defined here
@@ -24,5 +29,10 @@ module.exports = (sequelize, DataTypes) => {
       as: "ratings"
     });
   };
+
+  User.prototype.isAdmin = function() {
+    return this.role === "admin";
+  };
+
   return User;
 };

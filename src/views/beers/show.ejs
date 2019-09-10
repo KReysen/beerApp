@@ -26,7 +26,7 @@
       <section id="rating-list">
         <% if(beer.ratings) { %>
           <% beer.ratings.forEach((rating) => { %>
-            <%- include("../ratings/show/ejs", {rating}) %>
+            <%- include("../ratings/show.ejs", {rating}) %>
 
        <% }) %>
       <% } %>

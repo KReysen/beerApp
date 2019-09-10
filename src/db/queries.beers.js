@@ -26,7 +26,13 @@ module.exports = {
         })
     },
     getBeer(id, callback){
-        return Beer.findById(id)
+        return Beer.findById(id, {
+            include: [
+                {model: Rating, as: "ratings", include: [
+                    {model: User }
+                ]}
+            ]
+        })
         .then((beer) => {
             callback(null, beer);
         })

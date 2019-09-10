@@ -17,5 +17,20 @@ module.exports = {
         } else {
           return next();
         }
+      },
+
+      validateRatings(req, res, next) {
+        if(req.method === "POST") {
+          req.checkParams("beerId", "must be valid").notEmpty().isInt();
+          req.checkBody("score", "must be valid").isFloat({min: 1, max:10 });
+          
+        }
+        const errors = req.validationErrors();
+        if(errors) {
+          req.flash("error", errors);
+          return res.redirect(req.headers.referer);
+        } else {
+          return next()
+        }
       }
 }

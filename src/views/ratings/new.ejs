@@ -1,0 +1,15 @@
+<!-- #1 -->
+<form style="width:50%" action="/beers/<%= beer.id %>/ratings/create" method="post">
+
+    <div class="form-group">
+        <label for="score">Score</label>
+        <input type="number" name="score" step=".1">
+        <small class="text-muted" id="scoreHelp">Rate beer on a scale of 1-10</small>
+    </div>
+    <div class="form-group">
+      <label for="review">New Rating</label>
+      <textarea  class="form-control" name="review" aria-describedby="reviewHelp" placeholder="Enter comment"></textarea>
+      <small class="text-muted" id="reviewHelp">review must be 5 or more characters in length.</small>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

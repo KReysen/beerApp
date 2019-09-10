@@ -16,6 +16,23 @@
       <p><%= beer.description %></p>
       
 
+      <section id="rating-form">
+
+        <% if(currentUser) { %>
+          <% include ../ratings/new.ejs %>
+        
+        <% } %>
+      </section>
+      <section id="rating-list">
+        <% if(beer.ratings) { %>
+          <% beer.ratings.forEach((rating) => { %>
+            <%- include("../ratings/show/ejs", {rating}) %>
+
+       <% }) %>
+      <% } %>
+      </section>
+
+
       <form style="display:initial" action="/beers/<%= beer.id %>/destroy" method="post">
         <button type="submit" class="btn btn-danger">Delete Beer</button>
       </form>

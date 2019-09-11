@@ -3,6 +3,8 @@ const server = require("../../src/server");
 const base = "http://localhost:3000/users/";
 const User = require("../../src/db/models").User;
 const sequelize = require("../../src/db/models/index").sequelize;
+const Beer = require("../../src/db/models").Beer;
+const Rating = require("../../src/db/models").Rating;
 
 describe("routes : users", () => {
 
@@ -43,17 +45,52 @@ describe("routes : users", () => {
  
     });
 
-    // describe("GET /users/:id", () => {
-    //   beforeEach((done) => {
-    //     this.user;
+    describe("GET /users/:id", () => {
+      beforeEach((done) => {
+        this.user;
+        this.rating;
+        this.beer;
 
-    //     User.create({
-    //       username: "newuser",
-    //       email: "newuser@email.com",
-    //       password: "GoBuffs"
-    //     })
-    //   })
-    // })
+        User.create({
+          username: "newuser",
+          email: "newuser@email.com",
+          password: "GoBuffs"
+        })
+        .then((res) => {
+          this.user = res;
+
+          Beer.create({
+            name: "Amber Ale",
+            description: "The beer that helped build our brewery",
+            abv: 5.8,
+            style: "Amber",
+            brewery: "Bells Brewing",
+          })
+          .then((res) => {
+            this.beer = res;
+
+            Rating.create({
+              score: 7,
+              review: "A malty delight",
+              userId: this.user.id,
+              beerId: this.beer.id
+          
+            })
+            .then((res) => {
+              this.rating = res;
+              done();
+            })
+          })
+        })
+      });
+
+      it("should present a list of ratings a user has created", (done) => {
+        request.get(`${base}${this.user.id}`, (err, res, body) => {
+          expect(body).toContain("A malty delight");
+          done();
+        });
+      });
+    });
 
     describe("POST /users", () => {
 

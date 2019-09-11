@@ -1,5 +1,7 @@
 const User = require("./models").User;
 const bcrypt = require("bcryptjs");
+const Rating = require("./models").Rating;
+const Beer = require("./models").Beer;
 
 module.exports = {
 
@@ -29,6 +31,14 @@ module.exports = {
                 callback(404);
             } else {
                 result["user"] = user;
+                Rating.scope({method: ["lastFiveFor", id]}).findAll()
+                .then((ratings) => {
+                  result["ratings"] = ratings;
+                  callback(null, result);
+                })
+                .catch((err) => {
+                  callback(err);
+                })
             }
         })
     }

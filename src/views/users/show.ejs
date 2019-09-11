@@ -11,10 +11,27 @@
 
       <% include ../static/partials/messages.ejs %>
 
- <!-- #1 -->
+
       <h1><%= `${user.username}'s profile` %></h1>
 
-      
+      <h2>Latest Reviews</h2>
+      <ul class="list-unstyled">
+
+
+               <% if(ratings) { %>
+                 <% ratings.forEach((rating) => { %>
+
+                 <li> 
+                   <a href="/beers/<%= rating.beerId %>"> Beer name (to be fixed)
+                  </a>
+                  <p><%= rating.score%>/10</p>
+
+                   <p> <%= rating.review%>
+                  </p>
+                 </li>
+                 <% }) %>
+               <% } %>
+             </ul>
 
       
     </main>

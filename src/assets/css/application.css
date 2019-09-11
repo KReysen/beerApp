@@ -53,3 +53,45 @@ h1{
 #nameHelp, #emailHelp, #passwordHelp {
   color: white;
 }
+
+#back-button {
+  margin: 1em;
+}
+
+#delete-rating {
+  background-color: #dc3545;
+  border-color: #dc3545;;
+  color: white;
+}
+
+#delete-rating:hover {
+  background-color: #9c222e;
+}
+
+#review-card {
+  margin-top: 1em;
+  background-color: #2fbbbe;
+}
+
+.card-header {
+  background-color: #2fbbbe;
+}
+
+.blockquote-footer{
+  color: black;
+}
+
+#deleteForm {
+  padding: 1em;
+}
+
+#ratingForm {
+  background-color: #8c6b44;
+  padding: 2em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+#leaveRatingHeader{
+  padding: .5em;
+}

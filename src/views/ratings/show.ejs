@@ -1,23 +1,23 @@
 <% if(rating) { %>
-    <div style="width: 50%">
-      <hr>
-      <p>
-          <%= rating.score %>
-          <%= rating.review %>
-      </p>
-      <small class="card-subtitle mb-2 text-muted">
-          left by <%= rating.User.username %> on <%= rating.createdAt %>
-      </small>
-    </div>
-
+    <div class="card" id="review-card">
+      <div class="card-header">
+         Score: <%= rating.score %>/10
+      </div>
+      <div class="card-body">
+          "<%= rating.review %>""
+      </div>
+      <footer class="blockquote-footer">
+           <%= rating.User.username %>, <%= rating.createdAt %>
+      </footer>
+ 
     <% if(currentUser && (currentUser.id === rating.userId || currentUser.isAdmin())) { %>
-        <form style="display:initial"
+        <form style="display:initial" id="deleteForm"
               action="/beers/<%= beer.id %>/ratings/<%= rating.id %>/destroy"
               method="post">
-          <button type="submit" class="btn btn btn-sm btn-outline-danger">Delete</button>
+          <button type="submit" id="delete-rating" class="btn btn btn-sm btn-outline-danger">Delete</button>
         </form>
       <% } %>
-      <hr>
+      
     </div>
 
 <% } %>

@@ -15,7 +15,8 @@
     
       <p><%= beer.description %></p>
       
-
+      <a id="back-button" href="/beers" class="btn btn-primary">Back to Beer List</a>
+      
       <section id="rating-form">
 
         <% if(currentUser) { %>
@@ -23,8 +24,9 @@
         
         <% } %>
       </section>
-      <section id="rating-list">
+      <section  id="rating-list">
         <% if(beer.ratings) { %>
+          <h3>Latest Reviews</h3>
           <% beer.ratings.forEach((rating) => { %>
             <%- include("../ratings/show.ejs", {rating}) %>
 
@@ -32,12 +34,13 @@
       <% } %>
       </section>
 
+      <hr>
 
       <form style="display:initial" action="/beers/<%= beer.id %>/destroy" method="post">
         <button type="submit" class="btn btn-danger">Delete Beer</button>
       </form>
       <a href="/beers/<%= beer.id %>/edit" class="btn btn-warning">Edit Beer</a>
-      <a href="/beers" class="btn btn-primary">Back to Beer List</a>
+      
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

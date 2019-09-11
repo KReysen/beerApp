@@ -121,7 +121,7 @@ describe("routes : ratings", () => {
           request.get({
               url: "http://localhost:3000/auth/fake",
               form: {
-                  role: "bember",
+                  role: "member",
                   userId: this.user.id
               }
           },
@@ -143,7 +143,7 @@ describe("routes : ratings", () => {
               (err, res, body) => {
                   Rating.findOne({where: {review: "This beer is amazing!"}})
                   .then((rating) => {
-                      expect(rating).not.toBeNull();
+                    expect(rating).not.toBeNull();
                       expect(rating.score).toBe(6);
                       expect(rating.review).toBe("This beer is amazing!");
                       expect(rating.id).not.toBeNull();

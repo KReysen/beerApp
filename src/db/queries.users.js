@@ -25,7 +25,13 @@ module.exports = {
 
     getUser(id, callback){
         let result = {};
-        User.findById(id)
+        User.findById(id, {
+          include: [
+            {model: Rating, as: "ratings", include: [
+              {model: Beer}
+            ]},
+          ]
+        })
         .then((user) => {
             if(!user) {
                 callback(404);

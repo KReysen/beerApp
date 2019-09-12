@@ -32,6 +32,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Rating.addScope("lastFiveFor", (userId) => {
       return {
+
         where: { userId: userId},
         limit: 5,
         order: [["createdAt", "DESC"]]

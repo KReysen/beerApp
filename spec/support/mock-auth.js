@@ -3,7 +3,7 @@ module.exports = {
     // #1
       fakeIt(app){
     // #2
-        let role, id, email;
+        let role, id, email, username;
     
     // #3
         function middleware(req,res,next){

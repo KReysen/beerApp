@@ -40,6 +40,7 @@ describe("routes : ratings", () => {
                     })
                     .then((rating) => {
                         this.rating = rating;
+                       
                         done();
                     })
                     .catch((err) => {
@@ -54,6 +55,7 @@ describe("routes : ratings", () => {
             });
         });
     });
+        
 // test suites here
 // guest context
   describe("guest attempting to rate beer or delete ratings", () => {
@@ -99,11 +101,11 @@ describe("routes : ratings", () => {
               Rating.findAll()
               .then((ratings) => {
                   const ratingCountBeforeDelete = ratings.length;
-                  expect(this.ratingCountBeforeDelete).toBe(1);
+                  expect(ratingCountBeforeDelete).toBe(1);
                   request.post(
-                      `${base}${this.beer.id}/ratings/${this.rating.id}/destroy`,
+                      `${base}${this.rating.beerId}/ratings/${this.rating.id}/destroy`,
                       (err, res, body) => {
-                          Rating.findAll()
+                          Rating.findAll()          
                           .then((ratings) => {
                               expect(err).toBeNull();
                               expect(ratings.length).toBe(ratingCountBeforeDelete);
@@ -163,7 +165,7 @@ describe("routes : ratings", () => {
             Rating.findAll()
             .then((ratings) => {
                 const ratingCountBeforeDelete = ratings.length;
-                expect(this.ratingCountBeforeDelete).toBe(1);
+                expect(ratingCountBeforeDelete).toBe(1);
                 request.post(
                     `${base}${this.beer.id}/ratings/${this.rating.id}/destroy`,
                     (err, res, body) => {
@@ -180,5 +182,4 @@ describe("routes : ratings", () => {
     });
 
   }); // end user context
-
 });

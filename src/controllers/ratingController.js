@@ -24,11 +24,16 @@ module.exports = {
     },
     destroy(req, res, next){
         ratingQueries.deleteRating(req, (err, rating) => {
+            
             if(err){
+                
                 res.redirect(err, req.headers.referer);
             } else {
                 res.redirect(req.headers.referer);
             }
         });
     }
+    // getBeerName() {
+    //     // takes beerId and gets a name
+    // }
 }

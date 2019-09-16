@@ -19,7 +19,9 @@ module.exports = {
         return Rating.findById(req.params.id)
         .then((rating) => {
             const authorized = new Authorizer(req.user, rating).destroy();
+
             if(authorized){
+                
                 rating.destroy();
                 callback(null, rating)
             } else {

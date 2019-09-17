@@ -37,16 +37,14 @@ module.exports = {
                 callback(404);
             } else {
                 result["user"] = user;
-                Rating.scope({method: ["lastFiveFor", id]}).findAll()
-                .then((ratings) => {
-                  result["ratings"] = ratings;
                   callback(null, result);
+            }
                 })
                 .catch((err) => {
                   callback(err);
                 })
             }
-        })
-    }
+        
+    
 
 }

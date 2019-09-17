@@ -18,11 +18,11 @@
       <ul class="list-unstyled">
 
 
-               <% if(ratings) { %>
-                 <% ratings.forEach((rating) => { %>
+               <% if(user.ratings) { %>
+                 <% user.ratings.forEach((rating) => { %>
 
                  <li> 
-                   <a href="/beers/<%= rating.beerId %>"> beer name
+                   <a href="/beers/<%= rating.beerId %>"> <%= rating.Beer.name %>
                   </a>
                   <p><%= rating.score%>/10</p>
 

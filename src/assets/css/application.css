@@ -1,14 +1,15 @@
 .navbar {
-  background-color: #1f1c20;
+  background-color: #000000;
+  font-family: 'Cormorant SC', serif;
 
 }
 
 .index-body {
-  background-color: #EBECE6;
+  background-color: #000000;
 }
 
 .jumbotron {
-  background-color: #2fbbbe;
+  background-color: #000000;
 }
 
 .btn {
@@ -22,7 +23,9 @@
 
 body {
   padding-top: 25px;
-  background-color: #EBECE6;
+  background-color: #000000;
+  font-family: 'Cormorant SC', serif;
+  color: white;
 }
 
 #signup-box {
